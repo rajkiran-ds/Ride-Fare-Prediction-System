@@ -1,232 +1,218 @@
-# RideSense AI – Ride Fare Prediction System
+# 🚖 Ride Fare Prediction System
 
-## Live Demo
+A machine learning regression system that predicts ride fares in real time — helping ride-hailing platforms eliminate pricing inconsistencies caused by traffic, weather, surge pricing, and peak-hour demand.
 
-🚀 Streamlit Application: https://ride-fare-prediction-system-qtyvcrjcgemrxrlkpnwj7x.streamlit.app/
+🚀 **Live Demo:** [Launch Streamlit App](https://ride-fare-prediction-system-qtyvcrjcgemrxrlkpnwj7x.streamlit.app/)
 
+---
 
 ## Problem Statement
 
-RideSense AI is a ride-hailing fare prediction system designed to address inconsistencies in ride fare estimation caused by:
+RideSense AI, a fast-growing ride-hailing platform, faces inconsistencies in fare estimation due to changing traffic conditions, weather, peak-hour demand, and dynamic surge pricing. Incorrect fare predictions lead to customer dissatisfaction, driver complaints, and revenue inefficiencies.
 
-* Traffic conditions
-* Weather changes
-* Peak-hour demand
-* Dynamic surge pricing
-* Driver availability
+To solve this, a machine learning regression model was built using **10,000 historical ride records** to accurately predict ride fares before trip confirmation — minimizing prediction error and ensuring the model generalizes well under real-world transportation scenarios.
 
-Inaccurate fare estimation can lead to:
+---
 
-* Customer dissatisfaction
-* Driver complaints
-* Revenue inefficiencies
+## Business Impact
 
-This project builds a Machine Learning regression system capable of predicting ride fares using historical ride data and operational parameters.
+| Problem | Solution |
+|---------|----------|
+| Inconsistent fare estimates | ML regression model trained on 10K records |
+| Customer dissatisfaction | Real-time fare prediction before trip confirmation |
+| Revenue inefficiencies | Accurate surge-aware pricing model |
+| Manual pricing process | Automated end-to-end prediction pipeline |
 
+---
 
-# Business Objective
+## Tech Stack
 
-* Improve fare estimation accuracy
-* Reduce pricing inconsistencies
-* Enhance customer experience
-* Improve operational efficiency
-* Build a scalable fare prediction pipeline
-* Minimize prediction error using regression metrics
+| Category | Tools |
+|----------|-------|
+| Language | Python |
+| Data Processing | Pandas, NumPy |
+| ML Models | Random Forest, Decision Tree, KNN, AdaBoost, Linear Regression |
+| App Framework | Streamlit |
+| Containerization | Docker |
+| Model Serialization | Pickle |
+| Version Control | Git & GitHub |
 
-# Technologies Used
+---
 
-* Python
-* Pandas
-* NumPy
-* Scikit-learn
-* Streamlit
-* Docker
-* Pickle
-* Logging
-* Git & GitHub
+## ML Pipeline
 
+```
+Data Loading → Missing Value Handling → Outlier Treatment (Winsorization)
+→ Log Transformation → Feature Encoding (One-Hot) → Train-Test Split
+→ Model Experimentation → Feature Selection (Importance-Based)
+→ Final Model (Random Forest) → Streamlit Deployment → Docker Containerization
+```
 
-# Machine Learning Workflow
+---
 
-## Data Loading
+## Features Used
 
-Historical ride data loaded using Pandas.
+**Numerical:**
 
-## Missing Value Handling
+| Feature | Description |
+|---------|-------------|
+| Trip Distance | Distance of the ride in km |
+| Trip Duration | Duration of the ride in minutes |
+| Surge Multiplier | Dynamic pricing multiplier |
+| Fuel Price | Current fuel price index |
+| Demand Index | Real-time demand level |
+| Driver Rating | Driver's average rating |
+| Customer Rating | Customer's average rating |
+| Customer Loyalty Score | Customer loyalty tier score |
+| Phone Battery Level | Customer's phone battery at booking |
 
-* Median imputation for numerical columns
-* Mode imputation for categorical columns
+**Categorical:**
 
-## Outlier Treatment
+| Feature | Description |
+|---------|-------------|
+| Traffic Level | Low / Medium / High |
+| Vehicle Type | Economy / Premium / SUV etc. |
+| Weather Condition | Clear / Rainy / Foggy etc. |
+| Peak Hour | Whether booking is during peak hours |
+| Pickup Zone | Zone of pickup location |
+| Music Preference | In-ride music preference |
 
-Winsorization applied using the IQR method to reduce the impact of extreme values.
-
-## Log Transformation
-
-Log transformation applied to numerical features for experimentation.
-
-## Feature Encoding
-
-Categorical variables encoded using one-hot encoding.
-
-## Train-Test Split
-
-Dataset split into training and testing sets.
+---
 
 ## Model Experimentation
 
-Multiple regression algorithms evaluated:
+Five regression algorithms were evaluated before selecting the final model:
 
-* Linear Regression
-* KNeighbors Regressor
-* Decision Tree Regressor
-* Random Forest Regressor
-* AdaBoost Regressor
+| Model | Notes |
+|-------|-------|
+| Linear Regression | Baseline model |
+| KNeighbors Regressor | Distance-based approach |
+| Decision Tree Regressor | Non-linear splits |
+| AdaBoost Regressor | Boosting ensemble |
+| **Random Forest Regressor** | ✅ Selected — best performance |
 
-## Feature Selection
+**Final Strategy:** Winsorized dataset + Random Forest Regressor
 
-Feature importance based selection performed using Random Forest.
+---
 
-## Model Evaluation
+## Model Evaluation Metrics
 
-Models evaluated using:
+- **MAE** — Mean Absolute Error
+- **RMSE** — Root Mean Squared Error
+- **MAPE** — Mean Absolute Percentage Error
+- **MSE** — Mean Squared Error
 
-* RMSE
-* MAE
-* MAPE
+---
 
-## Final Model
+## Model Highlights
 
-Selected Model:
+- End-to-end regression pipeline on 10,000 ride records
+- Outlier handling using **Winsorization (IQR method)**
+- **Feature importance-based selection** using Random Forest
+- Multiple model experimentation with metric comparison
+- Real-time fare prediction via Streamlit
+- Docker containerization for reproducibility
+- Logging integration for pipeline tracking
+- Model serialization using Pickle
 
-* RandomForestRegressor
+---
 
-Final Strategy:
+## Project Structure
 
-* Winsorized Dataset
-
-# Features
-
-## Numerical Features
-
-* Trip Distance
-* Trip Duration
-* Surge Multiplier
-* Fuel Price
-* Demand Index
-* Driver Rating
-* Customer Rating
-* Customer Loyalty Score
-* Phone Battery Level
-
-## Categorical Features
-
-* Traffic Level
-* Vehicle Type
-* Weather Condition
-* Peak Hour
-* Pickup Zone
-* Music Preference
-
-
-# Streamlit Application
-
-The project includes an interactive Streamlit web application that allows users to:
-
-* Enter ride details
-* Select ride conditions
-* Predict ride fare in real time
-
-# Docker Support
-
-## Build Docker Image
-
-docker build -t ridesense-app .
-
-## Run Docker Container
-
-docker run  ridesense-ai-app
-
-
-# Project Structure
-
+```
 RideSense_AI/
 │
 ├── artifacts/
-│   ├── best_model.pkl
-│   ├── model_columns.pkl
-│   └── ridesense_dataset.csv
+│   ├── best_model.pkl          # Trained Random Forest model
+│   ├── model_columns.pkl       # Encoded feature columns
+│   └── ridesense_dataset.csv   # Historical ride dataset
 │
-├── images/
+├── images/                     # Screenshots and visuals
 │
 ├── logs/
-│   ├── ridesense.log
-│   └── ridesense_experimentation.log
+│   ├── ridesense.log                   # Pipeline logs
+│   └── ridesense_experimentation.log   # Experimentation logs
 │
-├── app.py
-├── pipeline.py
-├── experimentation.py
+├── app.py                      # Streamlit application
+├── pipeline.py                 # Training pipeline
+├── experimentation.py          # Model experimentation
 ├── Dockerfile
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+```
 
+---
 
-# Run Project
+## Getting Started
 
-## Install Requirements
+### 1. Install Requirements
 
+```bash
 pip install -r requirements.txt
+```
 
-## Run Training Pipeline
+### 2. Run Training Pipeline
 
-
-python src/pipeline.py
-
+```bash
+python pipeline.py
+```
 
 This generates:
+- Trained Random Forest model (`best_model.pkl`)
+- Encoded feature columns (`model_columns.pkl`)
 
-* Trained model
-* Model artifacts
-* Encoded feature columns
+### 3. Launch Streamlit App
 
-
-## Run Streamlit Application
-
+```bash
 streamlit run app.py
+```
 
+---
 
-# Model Evaluation Metrics
+## Docker Support
 
-The following regression metrics were used:
+### Build Image
 
-* Mean Squared Error (MSE)
-* Root Mean Squared Error (RMSE)
-* Mean Absolute Error (MAE)
-* Mean Absolute Percentage Error (MAPE)
+```bash
+docker build -t ridesense-app .
+```
 
+### Run Container
 
-# Model Highlights
+```bash
+docker run ridesense-app
+```
 
-* End-to-end regression pipeline
-* Outlier handling using Winsorization
-* Multiple model experimentation
-* Feature importance analysis
-* Real-time fare prediction
-* Streamlit deployment
-* Docker containerization
-* Logging integration
-* Model serialization using Pickle
+---
 
+## Application Screenshots
 
-# Future Improvements
+### Streamlit Homepage
+![Homepage](images/streamlit_homepage.png)
 
-* Hyperparameter tuning
-* CI/CD integration
-* Cloud deployment
-* Real-time API integration
-* Advanced feature engineering
+### Fare Prediction Result
+![Prediction](images/streamlit_prediction.png)
 
-# Author
+### Docker Deployment
+![Docker Run](images/docker_image1.png)
+![Docker Run](images/docker_image2.png)
 
-Raj Kiran Reddy
+---
+
+## Future Improvements
+
+- [ ] Hyperparameter tuning (GridSearchCV / Optuna)
+- [ ] CI/CD pipeline integration
+- [ ] Cloud deployment (AWS / Azure)
+- [ ] Real-time API integration
+- [ ] Advanced feature engineering
+- [ ] Explainable AI (SHAP values)
+
+---
+
+## Author
+
+**Raj Kiran Reddy**  
+B.Tech Data Science | MLRITM
+📍 Hyderabad, India

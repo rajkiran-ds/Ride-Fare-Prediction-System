@@ -1,0 +1,26 @@
+Model,MSE,RMSE,MAE,MAPE,Experiment
+RandomForest,130268.78,360.93,151.16,0.1035,Base
+LinearRegression,141283.8,375.88,154.39,0.116,Base
+DecisionTree,273986.95,523.44,203.01,0.1438,Base
+KNNRegressor,411311.68,641.34,427.58,0.313,Base
+AdaBoost,2389465.36,1545.79,1465.91,1.2542,Base
+RandomForest,129364.02,359.67,150.61,0.1032,Scaled
+LinearRegression,141283.8,375.88,154.39,0.116,Scaled
+KNNRegressor,218370.46,467.3,267.06,0.1913,Scaled
+DecisionTree,276603.56,525.93,204.14,0.1449,Scaled
+AdaBoost,2518098.36,1586.85,1493.3,1.2478,Scaled
+RandomForest,129467.36,359.82,150.8,0.1036,Winsorized
+LinearRegression,158035.57,397.54,162.32,0.119,Winsorized
+KNNRegressor,246257.51,496.24,265.71,0.1875,Winsorized
+DecisionTree,262729.04,512.57,201.42,0.1427,Winsorized
+AdaBoost,2463052.68,1569.41,1480.42,1.2495,Winsorized
+RandomForest,130776.84,361.63,151.69,0.1039,Log Transform
+LinearRegression,159770.65,399.71,172.87,0.1307,Log Transform
+KNNRegressor,239944.74,489.84,266.06,0.1862,Log Transform
+DecisionTree,281263.14,530.34,204.65,0.1444,Log Transform
+AdaBoost,2387248.6,1545.07,1457.85,1.2358,Log Transform
+KNNRegressor,155967.89,394.93,206.0,0.1503,Feature Selection
+RandomForest,161809.06,402.25,203.16,0.1498,Feature Selection
+LinearRegression,164750.12,405.89,202.79,0.1511,Feature Selection
+DecisionTree,356168.04,596.8,258.2,0.1941,Feature Selection
+AdaBoost,2615502.61,1617.25,1424.12,1.0942,Feature Selection
