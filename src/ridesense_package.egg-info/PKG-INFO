@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: ridesense_package
+Version: 0.0.1
+Summary: RideSense AI — Ride Fare Prediction ML Pipeline
+Author: Raj Kiran Reddy
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: streamlit
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: summary
