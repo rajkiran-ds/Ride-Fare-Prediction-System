@@ -1,5 +1,10 @@
 # RideSense AI – Ride Fare Prediction System
 
+## Live Demo
+
+🚀 Streamlit Application: https://ride-fare-prediction-system-qtyvcrjcgemrxrlkpnwj7x.streamlit.app/
+
+
 ## Problem Statement
 
 RideSense AI is a ride-hailing fare prediction system designed to address inconsistencies in ride fare estimation caused by:
