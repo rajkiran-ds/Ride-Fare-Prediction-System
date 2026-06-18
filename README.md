@@ -1,5 +1,10 @@
 # 🚖 Ride Fare Prediction System
 
+![Python](https://img.shields.io/badge/Python-3.10-blue?style=flat-square)
+![Model](https://img.shields.io/badge/Model-RandomForest-green?style=flat-square)
+![Streamlit](https://img.shields.io/badge/App-Streamlit-red?style=flat-square)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?style=flat-square)
+
 A machine learning regression system that predicts ride fares in real time — helping ride-hailing platforms eliminate pricing inconsistencies caused by traffic, weather, surge pricing, and peak-hour demand.
 
 🚀 **Live Demo:** [Launch Streamlit App](https://ride-fare-prediction-system-qtyvcrjcgemrxrlkpnwj7x.streamlit.app/)
@@ -216,3 +221,6 @@ docker run ridesense-app
 **Raj Kiran Reddy**  
 B.Tech Data Science | MLRITM
 📍 Hyderabad, India
+
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-black?style=flat-square&logo=github)](https://github.com/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin)](https://linkedin.com/)
